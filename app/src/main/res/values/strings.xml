@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">QuizApp</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+
+    <string name="bottom_wave_image">Bottom Wave Image</string>
+    <string name="welcome_to_quiz_master">Welcome to Quiz Master</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="get_started">Get Started</string>
+    <string name="app_hero_image">App Hero Image</string>
 </resources>
