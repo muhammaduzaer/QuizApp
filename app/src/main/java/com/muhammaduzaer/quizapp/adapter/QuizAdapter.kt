@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.muhammaduzaer.quizapp.R
 import com.muhammaduzaer.quizapp.models.Quiz
 import com.muhammaduzaer.quizapp.utils.ColorPicker
+import com.muhammaduzaer.quizapp.utils.IconPicker
 
 class QuizAdapter(val context: Context, val quizzes: List<Quiz>) :
     RecyclerView.Adapter<QuizAdapter.QuizViewHolder>() {
@@ -23,7 +24,8 @@ class QuizAdapter(val context: Context, val quizzes: List<Quiz>) :
 
     override fun onBindViewHolder(holder: QuizViewHolder, position: Int) {
         holder.textViewTitle.text = quizzes[position].title
-//        holder.container.setBackgroundColor(Color.parseColor(ColorPicker.))
+        holder.container.setBackgroundColor(Color.parseColor(ColorPicker.getColor()))
+        holder.imageViewIcon.setImageResource(IconPicker.getIcons())
     }
 
     override fun getItemCount(): Int {
