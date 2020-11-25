@@ -1,16 +1,13 @@
-package com.muhammaduzaer.quizapp.signup
+package com.muhammaduzaer.quizapp.activities.signup
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.muhammaduzaer.quizapp.activities.MainActivity
 import com.muhammaduzaer.quizapp.R
-import kotlinx.android.synthetic.main.activity_login.*
+import com.muhammaduzaer.quizapp.activities.logins.LoginActivity
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity() {
@@ -26,6 +23,12 @@ class SignUpActivity : AppCompatActivity() {
 
         buttonRegister.setOnClickListener{
             signUpUser()
+        }
+
+        textViewSignIn.setOnClickListener{
+            val signUpToSignIn = Intent(this, LoginActivity::class.java)
+            startActivity(signUpToSignIn)
+            finish()
         }
     }
 
@@ -49,6 +52,9 @@ class SignUpActivity : AppCompatActivity() {
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
                     Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
+                    val signUpToMain = Intent(this, MainActivity::class.java)
+                    startActivity(signUpToMain)
+                    finish()
                 }
                 else {
                     Toast.makeText(this, "Registration Failed, Please try again later.", Toast.LENGTH_SHORT).show()

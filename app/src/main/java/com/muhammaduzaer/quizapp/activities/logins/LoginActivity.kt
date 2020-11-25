@@ -1,10 +1,13 @@
-package com.muhammaduzaer.quizapp.logins
+package com.muhammaduzaer.quizapp.activities.logins
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.muhammaduzaer.quizapp.activities.MainActivity
 import com.muhammaduzaer.quizapp.R
+import com.muhammaduzaer.quizapp.activities.signup.SignUpActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -20,6 +23,13 @@ class LoginActivity : AppCompatActivity() {
         buttonSignIn.setOnClickListener {
             signInUser()
         }
+
+        textViewSignUp.setOnClickListener{
+            val loginToSignUp = Intent(this, SignUpActivity::class.java)
+            startActivity(loginToSignUp)
+            finish()
+        }
+
     }
 
     private fun signInUser() {
@@ -36,6 +46,10 @@ class LoginActivity : AppCompatActivity() {
                 if (it.isSuccessful) {
                     Toast.makeText(this, "Login Successful",
                         Toast.LENGTH_SHORT).show()
+
+                    val loginToMain = Intent(this, MainActivity::class.java)
+                    startActivity(loginToMain)
+                    finish()
                 }
                 else {
                     Toast.makeText(this, "Login Failed, please make sure you entered correct Email and Password",

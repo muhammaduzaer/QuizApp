@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".logins.LoginIntroActivity">
+    tools:context=".activities.logins.LoginIntroActivity">
 
     <ImageView
         android:layout_width="@dimen/size_200dp"
@@ -47,6 +47,7 @@
         android:id="@+id/buttonGetStarted"
         android:layout_width="200dp"
         android:layout_height="40dp"
+        android:background="@drawable/button_style"
         android:layout_marginTop="20dp"
         android:text="@string/get_started"
         app:layout_constraintEnd_toEndOf="parent"

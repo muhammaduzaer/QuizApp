@@ -13,4 +13,5 @@
     <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
     <string name="get_started">Get Started</string>
     <string name="app_hero_image">App Hero Image</string>
+    <string name="search">Search</string>
 </resources>
