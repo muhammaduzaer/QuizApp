@@ -10,6 +10,7 @@ import com.muhammaduzaer.quizapp.activities.logins.LoginActivity
 import com.muhammaduzaer.quizapp.adapter.QuizAdapter
 import com.muhammaduzaer.quizapp.models.Quiz
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.top_bar.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +28,14 @@ class MainActivity : AppCompatActivity() {
         populateDummyData()
         setUpViews()
 
+        imageButtonOpenDrawer.setOnClickListener{
+            mainDrawer.openDrawer(navigation)
+        }
+
+        imageButtonCloseDrawer.setOnClickListener{
+            mainDrawer.closeDrawer(navigation)
+        }
+
         textViewLogOut.setOnClickListener{
             firebaseAuth.signOut()
             val logOutfromDrawer = Intent(this, LoginActivity::class.java)
@@ -36,24 +45,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun populateDummyData() {
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
-        quizList.add(Quiz("12-12-2020", "13-12-2020"))
+        quizList.add(Quiz("12-12-2020", "Quiz 1"))
+        quizList.add(Quiz("12-12-2020", "Quiz 2"))
+        quizList.add(Quiz("12-12-2020", "Quiz 3"))
+        quizList.add(Quiz("12-12-2020", "Quiz 4"))
+        quizList.add(Quiz("12-12-2020", "Quiz 5"))
+        quizList.add(Quiz("12-12-2020", "Quiz 6"))
+        quizList.add(Quiz("12-12-2020", "Quiz 7"))
+        quizList.add(Quiz("12-12-2020", "Quiz 8"))
+        quizList.add(Quiz("12-12-2020", "Quiz 9"))
+        quizList.add(Quiz("12-12-2020", "Quiz 10"))
+        quizList.add(Quiz("12-12-2020", "Quiz 11"))
+        quizList.add(Quiz("12-12-2020", "Quiz 12"))
+        quizList.add(Quiz("12-12-2020", "Quiz 13"))
+        quizList.add(Quiz("12-12-2020", "Quiz 14"))
+        quizList.add(Quiz("12-12-2020", "Quiz 15"))
+        quizList.add(Quiz("12-12-2020", "Quiz 16"))
+        quizList.add(Quiz("12-12-2020", "Quiz 17"))
+        quizList.add(Quiz("12-12-2020", "Quiz 18"))
     }
 
     private fun setUpViews() {

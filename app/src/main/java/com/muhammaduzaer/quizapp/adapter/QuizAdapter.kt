@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.muhammaduzaer.quizapp.R
@@ -26,6 +27,9 @@ class QuizAdapter(val context: Context, val quizzes: List<Quiz>) :
         holder.textViewTitle.text = quizzes[position].title
         holder.container.setBackgroundColor(Color.parseColor(ColorPicker.getColor()))
         holder.imageViewIcon.setImageResource(IconPicker.getIcons())
+        holder.itemView.setOnClickListener{
+            Toast.makeText(context, quizzes[position].title, Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {

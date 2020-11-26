@@ -49,13 +49,31 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:elevation="20dp"
+                    android:background="@drawable/drawer_button_close"
+                    android:layout_margin="10dp">
+
+                    <ImageButton
+                        android:id="@+id/imageButtonCloseDrawer"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/drawer_button_close"
+                        android:src="@drawable/ic_close_drawer"
+                        android:layout_gravity="center"
+                        />
+                </FrameLayout>
+
                 <ImageView
                     android:id="@+id/imageViewDisplay"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@drawable/ic_baseline_person_24"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -64,11 +82,10 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="User Name"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/imageViewDisplay" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -92,7 +109,8 @@
                     android:text="Settings"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:drawableStart="@drawable/ic_icon_setting"/>
 
                 <TextView
                     android:id="@+id/textViewLogOut"
@@ -103,7 +121,8 @@
                     android:text="Log Out"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    app:layout_constraintTop_toBottomOf="@id/textViewSettings" />
+                    app:layout_constraintTop_toBottomOf="@id/textViewSettings"
+                    android:drawableStart="@drawable/ic_icon_logout"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
