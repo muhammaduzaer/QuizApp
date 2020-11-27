@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".activities.QuestionsActivity">
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/recyclerViewOptionsList"
+        android:layout_marginBottom="10dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewOptionsList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewDescription"
+        app:layout_constraintBottom_toTopOf="@id/guideLineHorizontal"
+
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLineHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".8"
+        />
+
+
+    <Button
+        android:id="@+id/buttonPrevious"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/previous"
+        android:textAllCaps="false"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/buttonSubmit"
+        />
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:textAllCaps="false"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/buttonPrevious"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

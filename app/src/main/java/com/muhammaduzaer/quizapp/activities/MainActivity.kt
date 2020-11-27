@@ -2,9 +2,12 @@ package com.muhammaduzaer.quizapp.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.muhammaduzaer.quizapp.R
 import com.muhammaduzaer.quizapp.activities.logins.LoginActivity
 import com.muhammaduzaer.quizapp.adapter.QuizAdapter
@@ -18,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var adapter: QuizAdapter
     private var quizList = mutableListOf<Quiz>()
+    private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +70,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpViews() {
+        setUpFireStore()
         setUpRecyclerView()
+    }
+
+    private fun setUpFireStore() {
+        firestore = FirebaseFirestore.getInstance()
+        val collectionReference = firestore.collection("quizzes")
+        collectionReference.addSnapshotListener { value, error ->
+            if(value == null || error != null) {
+                Toast.makeText(this, "Error Fetching Data", Toast.LENGTH_SHORT).show()
+                return@addSnapshotListener
+            }
+            Log.d("DATA", value.toObjects(Quiz::class.java).toString())
+            quizList.clear()
+            quizList.addAll(value.toObjects(Quiz::class.java))
+            adapter.notifyDataSetChanged()
+        }
     }
 
     private fun setUpRecyclerView() {

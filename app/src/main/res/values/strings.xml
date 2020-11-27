@@ -14,4 +14,7 @@
     <string name="get_started">Get Started</string>
     <string name="app_hero_image">App Hero Image</string>
     <string name="search">Search</string>
+    <string name="a_option">A: Option</string>
+    <string name="previous">Previous</string>
+    <string name="submit">Submit</string>
 </resources>
