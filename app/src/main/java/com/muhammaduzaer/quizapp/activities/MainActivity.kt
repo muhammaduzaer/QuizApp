@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.muhammaduzaer.quizapp.R
@@ -72,6 +73,26 @@ class MainActivity : AppCompatActivity() {
     private fun setUpViews() {
         setUpFireStore()
         setUpRecyclerView()
+        setUpDatePicker()
+    }
+
+    private fun setUpDatePicker(){
+        floatingButtonCalender.setOnClickListener{
+            val datePicker = MaterialDatePicker.Builder.datePicker().build()
+            datePicker.show(supportFragmentManager, "DatePicker")
+            datePicker.addOnPositiveButtonClickListener {
+                Log.d("DATEPICKER", datePicker.headerText)
+                val intent = Intent(this, QuestionsActivity::class.java)
+                intent.putExtra("DATE", datePicker.headerText)
+                startActivity(intent)
+            }
+            datePicker.addOnNegativeButtonClickListener{
+                Log.d("DATEPICKER", datePicker.headerText)
+            }
+            datePicker.addOnCancelListener {
+                Log.d("DATEPICKER", "Date Picker was Cancelled.")
+            }
+        }
     }
 
     private fun setUpFireStore() {

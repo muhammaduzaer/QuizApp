@@ -28,6 +28,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingButtonCalender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_calendar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/date_picker_button" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -65,7 +76,7 @@
                         android:background="@drawable/drawer_button_close"
                         android:src="@drawable/ic_close_drawer"
                         android:layout_gravity="center"
-                        />
+                        android:contentDescription="@string/app_drawer_close_button" />
                 </FrameLayout>
 
                 <ImageView
@@ -74,14 +85,15 @@
                     android:layout_height="100dp"
                     android:src="@drawable/ic_baseline_person_24"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/user_display" />
 
                 <TextView
                     android:id="@+id/textViewUserName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="User Name"
+                    android:text="@string/user_name"
                     android:textAlignment="textEnd"
                     android:textColor="@color/white"
                     android:textSize="24sp"
@@ -97,7 +109,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layoutHeader"
-
                 >
 
                 <TextView
@@ -106,11 +117,11 @@
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="20dp"
-                    android:text="Settings"
+                    android:text="@string/settings"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:drawableStart="@drawable/ic_icon_setting"/>
+                    app:drawableStartCompat="@drawable/ic_icon_setting" />
 
                 <TextView
                     android:id="@+id/textViewLogOut"
@@ -118,11 +129,11 @@
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="20dp"
-                    android:text="Log Out"
+                    android:text="@string/log_out"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintTop_toBottomOf="@id/textViewSettings"
-                    android:drawableStart="@drawable/ic_icon_logout"/>
+                    app:drawableStartCompat="@drawable/ic_icon_logout" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

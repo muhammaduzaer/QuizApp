@@ -11,13 +11,14 @@
         android:layout_height="100dp"
         android:src="@drawable/ic_baseline_person_24"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/user_display" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/TextAppearance.AppCompat.Subhead"
-        android:text="User Name"
+        android:text="@string/user_name"
         android:textSize="24sp"
         android:textColor="@color/white"
         android:padding="20dp"
