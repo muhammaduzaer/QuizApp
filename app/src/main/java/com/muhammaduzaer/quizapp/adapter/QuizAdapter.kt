@@ -1,6 +1,7 @@
 package com.muhammaduzaer.quizapp.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.muhammaduzaer.quizapp.R
+import com.muhammaduzaer.quizapp.activities.QuestionsActivity
 import com.muhammaduzaer.quizapp.models.Quiz
 import com.muhammaduzaer.quizapp.utils.ColorPicker
 import com.muhammaduzaer.quizapp.utils.IconPicker
@@ -29,6 +31,9 @@ class QuizAdapter(val context: Context, val quizzes: List<Quiz>) :
         holder.imageViewIcon.setImageResource(IconPicker.getIcons())
         holder.itemView.setOnClickListener{
             Toast.makeText(context, quizzes[position].title, Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, QuestionsActivity::class.java)
+            intent.putExtra("DATE", quizzes[position].title)
+            context.startActivity(intent)
         }
     }
 

@@ -44,10 +44,24 @@
         android:layout_height="wrap_content"
         android:text="@string/previous"
         android:textAllCaps="false"
-        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/buttonSubmit"
+        android:layout_marginHorizontal="10dp"
+        android:visibility="invisible"
+        />
+
+    <Button
+        android:id="@+id/buttonNext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:textAllCaps="false"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/buttonPrevious"
+        android:layout_marginHorizontal="10dp"
         />
 
     <Button
@@ -60,6 +74,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/buttonPrevious"
+        android:layout_marginHorizontal="10dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.muhammaduzaer.quizapp.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +16,8 @@ import com.muhammaduzaer.quizapp.adapter.QuizAdapter
 import com.muhammaduzaer.quizapp.models.Quiz
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.top_bar.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -76,12 +79,16 @@ class MainActivity : AppCompatActivity() {
         setUpDatePicker()
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun setUpDatePicker(){
         floatingButtonCalender.setOnClickListener{
             val datePicker = MaterialDatePicker.Builder.datePicker().build()
             datePicker.show(supportFragmentManager, "DatePicker")
             datePicker.addOnPositiveButtonClickListener {
                 Log.d("DATEPICKER", datePicker.headerText)
+
+                val dateFormatter = SimpleDateFormat( "dd-mm-yy")
+                val date = dateFormatter.format(Date(it))
                 val intent = Intent(this, QuestionsActivity::class.java)
                 intent.putExtra("DATE", datePicker.headerText)
                 startActivity(intent)
