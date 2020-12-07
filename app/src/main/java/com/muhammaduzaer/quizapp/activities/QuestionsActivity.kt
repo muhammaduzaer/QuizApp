@@ -1,11 +1,13 @@
 package com.muhammaduzaer.quizapp.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.gson.Gson
 import com.muhammaduzaer.quizapp.R
 import com.muhammaduzaer.quizapp.adapter.OptionsAdapter
 import com.muhammaduzaer.quizapp.models.Questions
@@ -38,6 +40,11 @@ class QuestionsActivity : AppCompatActivity() {
 
         buttonSubmit.setOnClickListener {
             Log.d("FINALQUIZ", questions.toString())
+
+            val intent = Intent(this, ResultActivity::class.java)
+            val json = Gson().toJson(quizzes!![0])
+            intent.putExtra("QUIZ", json)
+            startActivity(intent)
         }
     }
 
@@ -63,12 +70,13 @@ class QuestionsActivity : AppCompatActivity() {
 
     private fun bindViews() {
         buttonPrevious.visibility = View.GONE
-        buttonNext.visibility = View.GONE
         buttonSubmit.visibility = View.GONE
+        buttonNext.visibility = View.GONE
 
         if (index == 1) {
             buttonNext.visibility = View.VISIBLE
-        } else if(index == questions!!.size) {
+        }
+        else if(index == questions!!.size) {
             buttonSubmit.visibility = View.VISIBLE
             buttonPrevious.visibility = View.VISIBLE
 

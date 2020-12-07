@@ -21,8 +21,8 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var firebaseAuth: FirebaseAuth
 
+    private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var adapter: QuizAdapter
     private var quizList = mutableListOf<Quiz>()
     private lateinit var firestore: FirebaseFirestore
@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        populateDummyData()
         setUpViews()
 
         imageButtonOpenDrawer.setOnClickListener{
@@ -52,34 +51,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun populateDummyData() {
-        quizList.add(Quiz("12-12-2020", "Quiz 1"))
-        quizList.add(Quiz("12-12-2020", "Quiz 2"))
-        quizList.add(Quiz("12-12-2020", "Quiz 3"))
-        quizList.add(Quiz("12-12-2020", "Quiz 4"))
-        quizList.add(Quiz("12-12-2020", "Quiz 5"))
-        quizList.add(Quiz("12-12-2020", "Quiz 6"))
-        quizList.add(Quiz("12-12-2020", "Quiz 7"))
-        quizList.add(Quiz("12-12-2020", "Quiz 8"))
-        quizList.add(Quiz("12-12-2020", "Quiz 9"))
-        quizList.add(Quiz("12-12-2020", "Quiz 10"))
-        quizList.add(Quiz("12-12-2020", "Quiz 11"))
-        quizList.add(Quiz("12-12-2020", "Quiz 12"))
-        quizList.add(Quiz("12-12-2020", "Quiz 13"))
-        quizList.add(Quiz("12-12-2020", "Quiz 14"))
-        quizList.add(Quiz("12-12-2020", "Quiz 15"))
-        quizList.add(Quiz("12-12-2020", "Quiz 16"))
-        quizList.add(Quiz("12-12-2020", "Quiz 17"))
-        quizList.add(Quiz("12-12-2020", "Quiz 18"))
-    }
-
     private fun setUpViews() {
         setUpFireStore()
         setUpRecyclerView()
         setUpDatePicker()
     }
 
-    @SuppressLint("SimpleDateFormat")
     private fun setUpDatePicker(){
         floatingButtonCalender.setOnClickListener{
             val datePicker = MaterialDatePicker.Builder.datePicker().build()
@@ -87,10 +64,10 @@ class MainActivity : AppCompatActivity() {
             datePicker.addOnPositiveButtonClickListener {
                 Log.d("DATEPICKER", datePicker.headerText)
 
-                val dateFormatter = SimpleDateFormat( "dd-mm-yy")
+                val dateFormatter = SimpleDateFormat( "dd-mm-yyyy")
                 val date = dateFormatter.format(Date(it))
                 val intent = Intent(this, QuestionsActivity::class.java)
-                intent.putExtra("DATE", datePicker.headerText)
+                intent.putExtra("DATE", date)
                 startActivity(intent)
             }
             datePicker.addOnNegativeButtonClickListener{
@@ -122,7 +99,6 @@ class MainActivity : AppCompatActivity() {
         recylerViewQuiz.layoutManager = GridLayoutManager(this, 2)
         recylerViewQuiz.adapter = adapter
     }
-
 
 }
 
